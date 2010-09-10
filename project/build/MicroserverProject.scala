@@ -10,6 +10,13 @@ class MicroserverProject(info: ProjectInfo) extends DefaultProject(info)
 
   val servletApi = "javax.servlet" % "servlet-api" % "2.5" withSources()
 
+
+  lazy val dist = distAction dependsOn (proguard) describedAs "create distribution zip"
+  def distAction = zipTask(distPaths, "dist", "microserver.zip" )
+
+  def distPaths = "config.properties" +++ "LICENSE.txt" +++ ( (outputPath ##) / minJarName)
+
+
   override def proguardOptions = List(
     "-keep public class com.gu.microserver.MicroServer { public static void main(java.lang.String[]); }",
     "-keep class org.mortbay.**")
