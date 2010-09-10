@@ -1,1 +1,9 @@
+target/
+lib_managed/
+src_managed/
+project/boot/
 out
+*.ipr
+*.iws
+*.iml
+.idea/
