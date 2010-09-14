@@ -46,7 +46,7 @@ public class PageServlet extends ConfiguredServlet {
 
         //load the html of the component
         URL htmlUrl = new URL(urlString);
-        String component = IOUtils.toString(htmlUrl.openStream());
+        String component = IOUtils.toString(htmlUrl.openStream(), "UTF-8");
 
         //replace placeholder with the component
         html = html.replace("[PLACEHOLDER]", component);
