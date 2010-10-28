@@ -11,6 +11,7 @@ public class MicroServer {
         WebAppContext root = new WebAppContext(server,"/", null);
         root.addServlet(new ServletHolder(new PageServlet("templates/article.html")), "/article");
         root.addServlet(new ServletHolder(new PageServlet("templates/front.html")), "/front");
+        root.addServlet(new ServletHolder(new PageServlet("templates/tv-and-radio.html")), "/tv-and-radio");
         root.addServlet(new ServletHolder(new PageServlet("templates/wide-resource.html")), "/resource");
         root.addServlet(new ServletHolder(new ResourceServlet("text/css", "cssUrl")), "/css");
         root.addServlet(new ServletHolder(new ResourceServlet("text/javascript", "javascriptUrl")), "/js");
